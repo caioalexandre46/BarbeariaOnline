@@ -8,6 +8,7 @@ __________________________
 BarberConnect
 
 **2. Logotipo da solução**
+
 <img src="BarberConnet.png">
    
 **3. Cenário**
