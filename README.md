@@ -8,7 +8,7 @@ __________________________
 BarberConnect
 
 **2. Logotipo da solução**
-<img src="barberConnet">
+<img src="BarberConnet.png">
    
 **3. Cenário**
 As barbearias tradicionais estão enfrentando o desafio de se adaptarem ao ambiente online devido à crescente demanda por serviços de barbearia acessíveis e convenientes. Os clientes buscam agendar seus cortes de cabelo e cuidados pessoais de forma rápida e eficiente, sem a necessidade de visitas presenciais ou ligações telefônicas.
