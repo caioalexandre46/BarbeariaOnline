@@ -15,20 +15,20 @@ As barbearias tradicionais estão enfrentando o desafio de se adaptarem ao ambie
 **4. Requisitos a serem atendidos:**
 * Requisitos funcionais *
 
-   Cadastro de Cliente
-  Login de Cliente
-  Visualização de Horarios Disponivel
-  Agendamento de Horarios
-  confirmação por E-mail
-  Cancelamento de Agendamento
-  Gerenciamento de Calendario
-  Pagamento Online
+  Cadastro de Cliente,
+  Login de Cliente,
+  Visualização de Horarios Disponivel,
+  Agendamento de Horarios,
+  confirmação por E-mail,
+  Cancelamento de Agendamento,
+  Gerenciamento de Calendario,
+  Pagamento Online.
   
 * Requisitos não funcionais
 
-  Desempenho
-  Segurança
-  Usabilidade
+  Desempenho,
+  Segurança,
+  Usabilidade.
   
 **5. Tecnologias utilizadas**
 
