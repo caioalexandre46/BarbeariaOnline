@@ -24,7 +24,7 @@ As barbearias tradicionais estão enfrentando o desafio de se adaptarem ao ambie
   confirmação por E-mail,
   Cancelamento de Agendamento,
   Gerenciamento de Calendario,
-  Pagamento Online.
+  
   
 * Requisitos não funcionais
 
