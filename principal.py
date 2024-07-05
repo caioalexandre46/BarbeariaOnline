@@ -19,9 +19,11 @@ class Usuario(db.Model):
     
 class Agendamento(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    cliente = db.Column(db.String(255), nullable=False)
     servicos = db.Column(db.String(255), nullable=False)
-    dia_semana = db.Column(db.String(255), nullable=False)
+    dia = db.Column(db.String(255), nullable=False)
     horario = db.Column(db.String(255), nullable=False)
+    valor = db.Column(db.String(255), nullable=False)
 #===================FIMCLASSES===================
 
 #===================ROTAS===================
@@ -66,27 +68,65 @@ def logout():
 def deletar(id):
     if 'usuarioLogado' not in session or session['usuarioLogado'] == None:
         return redirect(url_for('login'))
+    
+    if session['usuarioLogado'] != 'adm':
+        flash('Você não tem permissão para excluir este agendamento.')
+        return redirect(url_for('index'))
 
     Agendamento.query.filter_by(id=id).delete()
     db.session.commit()
-    flash('Agendamento Cancelado!')
+    flash('Atendimento Concluido!')
     return redirect(url_for('index'))
 
 @app.route('/agendar', methods=['GET', 'POST'])
 def agendar():
+    service_prices = {
+        'corte': 40,
+        'barba': 20,
+        'sobracelha': 10
+    }
+    valor = 0
+    
     if request.method == 'POST':
+        cliente = request.form['cliente']
         servicos = ', '.join(request.form.getlist('checkboxes'))
-        dia_semana = request.form.get('selectbasic')
+        dia = request.form.get('dia')
         horario = request.form.get('selecthorarios')
+        selected_services = request.form.getlist('checkboxes')
+        valor = sum(service_prices[checkbox] for checkbox in selected_services)
 
-    novo_agendamento = Agendamento(servicos=servicos, dia_semana=dia_semana, horario=horario)
+    novo_agendamento = Agendamento(cliente=cliente, servicos=servicos, dia=dia, horario=horario, valor=valor)
     db.session.add(novo_agendamento)
     db.session.commit()
     return redirect(url_for('index'))
 
 @app.route('/bar')
 def bar():
+    
     return render_template('barber.html')
+
+@app.route('/cadastro', methods=['POST',])
+def cadastro():
+    login = request.form['login']
+    senha = request.form['senha']
+    if not login or not senha:
+        flash('Por favor preencha todos os campos.')
+        return redirect(url_for('cadastro'))
+    user = Usuario.query.filter_by(login=login).first()
+    if user:
+        flash('Este nome de usuário já está em uso!')
+        return redirect(url_for('cadastro'))
+    
+    novouser = Usuario(login=login, senha=senha)
+    db.session.add(novouser)
+    db.session.commit()
+    flash('Usuário cadastrado!')
+    return redirect(url_for('index'))
+
+@app.route('/pagcadastro')
+def pagcadastro():
+    return render_template('cadastro.html')
+
 
 #===================FIMROTAS===================
 

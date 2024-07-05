@@ -37,9 +37,11 @@ TABLES['Usuario'] = ('''
 TABLES['Agendamento'] = ('''
       CREATE TABLE `agendamento` (
       `id` int(11) NOT NULL AUTO_INCREMENT,
+      `cliente` VARCHAR(255) NOT NULL,
       `servicos` VARCHAR(255) NOT NULL,
-      `dia_semana` VARCHAR(255) NOT NULL,
+      `dia` VARCHAR(255) NOT NULL,
       `horario` VARCHAR(255) NOT NULL,
+      `valor` VARCHAR(255) NOT NULL,
       PRIMARY KEY (`id`) 
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;''')
 
@@ -72,9 +74,9 @@ for usuario in cursor.fetchall():
     print(usuario[1])
 
 
-agendamentoSQL = 'INSERT INTO agendamento (servicos, dia_semana, horario) VALUES (%s, %s, %s)'
+agendamentoSQL = 'INSERT INTO agendamento (cliente, servicos, dia, horario, valor) VALUES (%s, %s, %s, %s, %s)'
 agendamentos = [
-    ("corte", "21/06", "14:17"),
+    ("Caio", "corte", "2024-06-10", "14:17", "20"),
 ]
 cursor.executemany(agendamentoSQL, agendamentos)
 cursor.execute('select * from barberconnect.agendamento')

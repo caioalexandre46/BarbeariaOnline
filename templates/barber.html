@@ -17,38 +17,29 @@
 <fieldset>
 
 
-
-<div class="control-group">
-  <label class="control-label" for="checkboxes">Servicos</label>
-  <div class="controls">
-    <label class="checkbox" for="checkboxes-0">
-      <input type="checkbox" name="checkboxes" id="checkboxes-0" value="Corte de Cabelo">
-      Corte de Cabelo
-    </label>
-    <label class="checkbox" for="checkboxes-1">
-      <input type="checkbox" name="checkboxes" id="checkboxes-1" value="Barba">
-      Barba
-    </label>
-    <label class="checkbox" for="checkboxes-2">
-      <input type="checkbox" name="checkboxes" id="checkboxes-2" value="completo">
-      completo
-    </label>
+  <div class="form-group">
+    <label for="cliente">Cliente</label>
+    <input type="text" id="cliente" name="cliente" class="form-control">
   </div>
+<div class="control-group">
+  <p>Serviços</p>
+  <label>
+    <input type="checkbox" name="checkboxes" value="corte" {% if 'corte' in request.form.getlist('checkboxes') %}checked{% endif %}> Corte (R$40)
+</label><br>
+<label>
+    <input type="checkbox" name="checkboxes" value="barba" {% if 'barba' in request.form.getlist('checkboxes') %}checked{% endif %}> Barba (R$20)
+</label><br>
+<label>
+    <input type="checkbox" name="checkboxes" value="sobracelha" {% if 'bigode' in request.form.getlist('checkboxes') %}checked{% endif %}> sobracelha (R$10)
+</label><br><br>
+
+
+<div class="form-group">
+  <label for="dia">Dia</label>
+  <input type="date" id="dia" name="dia" value="{{ dia }}" class="form-control">
 </div>
 
-<div class="control-group">
-  <label class="control-label" for="selectbasic">Data disponiveis</label>
-  <div class="controls">
-    <select id="selectbasic" name="selectbasic" class="input-xlarge">
-      <option>Segunda-feira</option>
-      <option>terca-feira</option>
-      <option>Quarta-feira</option>
-      <option>Quinta-feira</option>
-      <option>Sexta-feira</option>
-      <option>Sabado</option>
-    </select>
-  </div>
-</div>
+
 
 <div class="control-group">
   <label class="control-label" for="selecthorarios">Horarios Disponiveis</label>
@@ -77,5 +68,8 @@
 
 </fieldset>
 </form>
+{% if dia %}
+        <p>Data selecionada: {{ dia }}</p>
+    {% endif %}
 </div>
 </body>

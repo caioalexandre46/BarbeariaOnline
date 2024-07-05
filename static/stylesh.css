@@ -1,5 +1,5 @@
 .criar {
-    background-color: blue;
+    background-color: gray;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -12,7 +12,7 @@
 
 .criar:hover {
     transition: background-color 0.3s ease;
-    background-color: rgb(18, 18, 160);
+    background-color: darkgray;
     border: none;
     padding: 15px 32px;
     text-align: center;
@@ -31,8 +31,8 @@
 
 .container {
     width: 100%;
-    height: 60px;
-    background-color: blue;
+    height: 56px;
+    background-color: gray;
     
 }
 
@@ -56,9 +56,51 @@
     width: 100px;
 }
 
-.body {
-    background-image: url("PI/static/imagens/fundo.png");
-    background-repeat: none;
-    background-size: cover;
+
+
+.image-link {
+    display: inline-block;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-decoration: none; /* Remove underline */
+}
+
+.image-link img {
+    width: 50px; /* Defina a largura desejada */
+    height: 50px; /* Defina a altura desejada */
+    border: none; /* Remove qualquer borda na imagem */
+}
+
+.card {
+    position: relative;
+    left: 200px;
+}
+
+.pe {
+    color: white;
+    display: flex;
+    margin-top: 100px;
+    background-color: grey;
+    width: 100%;
     
+}
+
+.textowhite {
+    color: white;
+    padding: 10px 10px;
+    text-decoration: none;
+}
+
+.textowhite:hover {
+    transition: color 0.3s ease;
+    color: blue;
+    padding: 10px 10px;
+    text-decoration: none;
+}
+
+.textowhites {
+    color: white;
+    padding: 10px 10px;
+    text-decoration: none;
 }
